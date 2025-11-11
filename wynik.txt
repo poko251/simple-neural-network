@@ -1,0 +1,50 @@
+Ilość epok: 1000
+Epoka 0 | Średni błąd = 0.31477848073673054
+Epoka 100 | Średni błąd = 0.24129092534698873
+Epoka 200 | Średni błąd = 0.22265154098149903
+Epoka 300 | Średni błąd = 0.16343016761785203
+Epoka 400 | Średni błąd = 0.12225058131781223
+Epoka 500 | Średni błąd = 0.10795900977467143
+Epoka 600 | Średni błąd = 0.10230580077693971
+Epoka 700 | Średni błąd = 0.09959357763205641
+Epoka 800 | Średni błąd = 0.09809167639190879
+Epoka 900 | Średni błąd = 0.09716547253900612
+Epoka 999 | Średni błąd = 0.09654809120403499
+
+ KOŃCOWE WAGI I BIASY PO TRENINGU
+W1_1=3.410005, W1_2=0.255840, W2_1=13.998442, W2_2=0.625896
+B1=-3.313534, B2=-11.130614
+W3_1=-1.632601, W3_2=-10.060921, W4_1=2.137681, W4_2=10.009314
+B3=5.682690, B4=-5.845126
+
+TEST PO TRENINGU
+Wejście: 1.0, 0.8 -> Wyjście: [0.007, 0.994] | Oczekiwane: [0, 1]
+Wejście: 0.9, 1.0 -> Wyjście: [0.018, 0.983] | Oczekiwane: [0, 1]
+Wejście: 0.9, 0.9 -> Wyjście: [0.015, 0.986] | Oczekiwane: [0, 1]
+Wejście: 0.7, 0.6 -> Wyjście: [0.750, 0.248] | Oczekiwane: [1, 0]
+Wejście: 0.7, 0.7 -> Wyjście: [0.817, 0.182] | Oczekiwane: [1, 0]
+Wejście: 0.8, 0.9 -> Wyjście: [0.120, 0.882] | Oczekiwane: [0, 1]
+Wejście: 0.9, 1.0 -> Wyjście: [0.022, 0.978] | Oczekiwane: [0, 1]
+Wejście: 0.9, 1.0 -> Wyjście: [0.023, 0.978] | Oczekiwane: [0, 1]
+Wejście: 0.9, 0.9 -> Wyjście: [0.040, 0.961] | Oczekiwane: [0, 1]
+Wejście: 0.9, 0.4 -> Wyjście: [0.053, 0.948] | Oczekiwane: [1, 0]
+Wejście: 0.7, 0.8 -> Wyjście: [0.817, 0.182] | Oczekiwane: [1, 0]
+Wejście: 0.9, 0.7 -> Wyjście: [0.012, 0.989] | Oczekiwane: [0, 1]
+Wejście: 0.9, 0.8 -> Wyjście: [0.040, 0.961] | Oczekiwane: [0, 1]
+Wejście: 0.8, 0.7 -> Wyjście: [0.070, 0.931] | Oczekiwane: [0, 1]
+Wejście: 0.9, 0.7 -> Wyjście: [0.026, 0.975] | Oczekiwane: [0, 1]
+Wejście: 0.9, 0.8 -> Wyjście: [0.015, 0.986] | Oczekiwane: [0, 1]
+Wejście: 0.8, 0.9 -> Wyjście: [0.123, 0.879] | Oczekiwane: [1, 0]
+Wejście: 0.8, 0.8 -> Wyjście: [0.080, 0.921] | Oczekiwane: [1, 0]
+Wejście: 0.7, 0.6 -> Wyjście: [0.709, 0.289] | Oczekiwane: [1, 0]
+Wejście: 0.8, 1.0 -> Wyjście: [0.182, 0.820] | Oczekiwane: [0, 1]
+Wejście: 0.8, 0.7 -> Wyjście: [0.083, 0.918] | Oczekiwane: [1, 0]
+Wejście: 0.8, 0.7 -> Wyjście: [0.344, 0.657] | Oczekiwane: [1, 0]
+Wejście: 0.9, 0.6 -> Wyjście: [0.018, 0.983] | Oczekiwane: [1, 0]
+Wejście: 0.9, 0.9 -> Wyjście: [0.014, 0.986] | Oczekiwane: [0, 1]
+Wejście: 0.7, 0.7 -> Wyjście: [0.904, 0.094] | Oczekiwane: [1, 0]
+Wejście: 1.0, 0.8 -> Wyjście: [0.009, 0.992] | Oczekiwane: [0, 1]
+Wejście: 0.9, 0.8 -> Wyjście: [0.030, 0.971] | Oczekiwane: [0, 1]
+Wejście: 0.8, 0.6 -> Wyjście: [0.212, 0.789] | Oczekiwane: [1, 0]
+Wejście: 0.9, 0.9 -> Wyjście: [0.042, 0.959] | Oczekiwane: [0, 1]
+Wejście: 0.9, 0.6 -> Wyjście: [0.040, 0.961] | Oczekiwane: [0, 1]
