@@ -253,8 +253,8 @@ def start(betas, etas, epochs, normalizacja=0):
 
                     print("\nTEST PO TRENINGU",file=f)
 
-                    poprawne = 0
-                    bledne = 0
+
+                    cm = np.zeros((2,2), dtype=int)
 
                     for i in range(len(X_test)):
                         x1, x2 = X_test[i]
@@ -265,18 +265,26 @@ def start(betas, etas, epochs, normalizacja=0):
                         pred = np.argmax([y1, y2])
                         true = np.argmax([d1, d2])
 
-                        if pred == true:
-                            poprawne += 1 
-                        else:
-                            bledne += 1
+
+                        cm[true, pred] += 1
+
 
                         print(f"Wejście: {x1:.3f}, {x2:.3f} -> Wyjście: [{y1:.3f}, {y2:.3f}] | Oczekiwane: [{d1}, {d2}]| {'OK' if pred==true else 'BŁĄD'}",file=f)
 
-                    print("\nPODSUMOWANIE KLASYFIKACJI",file=f)
-                    print(f"Poprawne: {poprawne}",file=f)
-                    print(f"Błędne:   {bledne}",file=f)
+                                                
+                    print("\nMACIERZ POMYŁEK (confusion matrix)", file=f)
+                    print("           Pred 0   Pred 1", file=f)
+                    print(f"True 0      {cm[0,0]:5d}   {cm[0,1]:5d}", file=f)
+                    print(f"True 1      {cm[1,0]:5d}   {cm[1,1]:5d}", file=f)
 
+                 
+                    poprawne = cm[0,0] + cm[1,1]
+                    bledne   = cm[0,1] + cm[1,0]
 
+                    print("\nPODSUMOWANIE", file=f)
+                    print(f"Poprawne: {poprawne}", file=f)
+                    print(f"Błędne:   {bledne}", file=f)
+                        
 
 start(betas, etas, epochs, normalizacja)
 
