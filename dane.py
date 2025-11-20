@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-dane = pd.read_csv("dane.csv", nrows=100)
+dane = pd.read_csv("dane.csv", nrows=1000)
 
 dane["Sex"] = dane["Sex"].map({"Male": 1, "Female": 0})
 

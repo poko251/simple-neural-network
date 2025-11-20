@@ -1,50 +1,54 @@
 Ilość epok: 1000
-Epoka 0 | Średni błąd = 0.31477848073673054
-Epoka 100 | Średni błąd = 0.24129092534698873
-Epoka 200 | Średni błąd = 0.22265154098149903
-Epoka 300 | Średni błąd = 0.16343016761785203
-Epoka 400 | Średni błąd = 0.12225058131781223
-Epoka 500 | Średni błąd = 0.10795900977467143
-Epoka 600 | Średni błąd = 0.10230580077693971
-Epoka 700 | Średni błąd = 0.09959357763205641
-Epoka 800 | Średni błąd = 0.09809167639190879
-Epoka 900 | Średni błąd = 0.09716547253900612
-Epoka 999 | Średni błąd = 0.09654809120403499
+Epoka 0 | Średni błąd = 0.27163991486921385
+Epoka 100 | Średni błąd = 0.24636201383672943
+Epoka 200 | Średni błąd = 0.24636201383672943
+Epoka 300 | Średni błąd = 0.24636201383672943
+Epoka 400 | Średni błąd = 0.24636201383672943
+Epoka 500 | Średni błąd = 0.24636201383672943
+Epoka 600 | Średni błąd = 0.24636201383672943
+Epoka 700 | Średni błąd = 0.24636201383672943
+Epoka 800 | Średni błąd = 0.24636201383672943
+Epoka 900 | Średni błąd = 0.24636201383672943
+Epoka 999 | Średni błąd = 0.24636201383672943
 
  KOŃCOWE WAGI I BIASY PO TRENINGU
-W1_1=3.410005, W1_2=0.255840, W2_1=13.998442, W2_2=0.625896
-B1=-3.313534, B2=-11.130614
-W3_1=-1.632601, W3_2=-10.060921, W4_1=2.137681, W4_2=10.009314
-B3=5.682690, B4=-5.845126
+W1_1=0.238478, W1_2=0.383150, W2_1=0.732217, W2_2=0.075318
+B1=0.272396, B2=0.732484
+W3_1=-0.109224, W3_2=-0.101285, W4_1=0.234639, W4_2=-0.348037
+B3=-0.258089, B4=0.581995
 
 TEST PO TRENINGU
-Wejście: 1.0, 0.8 -> Wyjście: [0.007, 0.994] | Oczekiwane: [0, 1]
-Wejście: 0.9, 1.0 -> Wyjście: [0.018, 0.983] | Oczekiwane: [0, 1]
-Wejście: 0.9, 0.9 -> Wyjście: [0.015, 0.986] | Oczekiwane: [0, 1]
-Wejście: 0.7, 0.6 -> Wyjście: [0.750, 0.248] | Oczekiwane: [1, 0]
-Wejście: 0.7, 0.7 -> Wyjście: [0.817, 0.182] | Oczekiwane: [1, 0]
-Wejście: 0.8, 0.9 -> Wyjście: [0.120, 0.882] | Oczekiwane: [0, 1]
-Wejście: 0.9, 1.0 -> Wyjście: [0.022, 0.978] | Oczekiwane: [0, 1]
-Wejście: 0.9, 1.0 -> Wyjście: [0.023, 0.978] | Oczekiwane: [0, 1]
-Wejście: 0.9, 0.9 -> Wyjście: [0.040, 0.961] | Oczekiwane: [0, 1]
-Wejście: 0.9, 0.4 -> Wyjście: [0.053, 0.948] | Oczekiwane: [1, 0]
-Wejście: 0.7, 0.8 -> Wyjście: [0.817, 0.182] | Oczekiwane: [1, 0]
-Wejście: 0.9, 0.7 -> Wyjście: [0.012, 0.989] | Oczekiwane: [0, 1]
-Wejście: 0.9, 0.8 -> Wyjście: [0.040, 0.961] | Oczekiwane: [0, 1]
-Wejście: 0.8, 0.7 -> Wyjście: [0.070, 0.931] | Oczekiwane: [0, 1]
-Wejście: 0.9, 0.7 -> Wyjście: [0.026, 0.975] | Oczekiwane: [0, 1]
-Wejście: 0.9, 0.8 -> Wyjście: [0.015, 0.986] | Oczekiwane: [0, 1]
-Wejście: 0.8, 0.9 -> Wyjście: [0.123, 0.879] | Oczekiwane: [1, 0]
-Wejście: 0.8, 0.8 -> Wyjście: [0.080, 0.921] | Oczekiwane: [1, 0]
-Wejście: 0.7, 0.6 -> Wyjście: [0.709, 0.289] | Oczekiwane: [1, 0]
-Wejście: 0.8, 1.0 -> Wyjście: [0.182, 0.820] | Oczekiwane: [0, 1]
-Wejście: 0.8, 0.7 -> Wyjście: [0.083, 0.918] | Oczekiwane: [1, 0]
-Wejście: 0.8, 0.7 -> Wyjście: [0.344, 0.657] | Oczekiwane: [1, 0]
-Wejście: 0.9, 0.6 -> Wyjście: [0.018, 0.983] | Oczekiwane: [1, 0]
-Wejście: 0.9, 0.9 -> Wyjście: [0.014, 0.986] | Oczekiwane: [0, 1]
-Wejście: 0.7, 0.7 -> Wyjście: [0.904, 0.094] | Oczekiwane: [1, 0]
-Wejście: 1.0, 0.8 -> Wyjście: [0.009, 0.992] | Oczekiwane: [0, 1]
-Wejście: 0.9, 0.8 -> Wyjście: [0.030, 0.971] | Oczekiwane: [0, 1]
-Wejście: 0.8, 0.6 -> Wyjście: [0.212, 0.789] | Oczekiwane: [1, 0]
-Wejście: 0.9, 0.9 -> Wyjście: [0.042, 0.959] | Oczekiwane: [0, 1]
-Wejście: 0.9, 0.6 -> Wyjście: [0.040, 0.961] | Oczekiwane: [0, 1]
+Wejście: 190.750, 71.140 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+Wejście: 171.090, 87.800 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+Wejście: 174.400, 80.630 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+Wejście: 141.310, 52.130 -> Wyjście: [0.385, 0.615] | Oczekiwane: [1, 0]| BŁĄD
+Wejście: 138.090, 63.060 -> Wyjście: [0.385, 0.615] | Oczekiwane: [1, 0]| BŁĄD
+Wejście: 155.060, 84.340 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+Wejście: 168.040, 92.240 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+Wejście: 168.140, 88.040 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+Wejście: 163.840, 78.580 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+Wejście: 165.650, 35.410 -> Wyjście: [0.385, 0.615] | Oczekiwane: [1, 0]| BŁĄD
+Wejście: 137.100, 73.360 -> Wyjście: [0.385, 0.615] | Oczekiwane: [1, 0]| BŁĄD
+Wejście: 178.760, 66.120 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+Wejście: 163.960, 78.330 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+Wejście: 160.860, 63.680 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+Wejście: 169.600, 60.530 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+Wejście: 174.310, 78.180 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+Wejście: 155.240, 80.460 -> Wyjście: [0.385, 0.615] | Oczekiwane: [1, 0]| BŁĄD
+Wejście: 159.070, 71.680 -> Wyjście: [0.385, 0.615] | Oczekiwane: [1, 0]| BŁĄD
+Wejście: 142.030, 56.300 -> Wyjście: [0.385, 0.615] | Oczekiwane: [1, 0]| BŁĄD
+Wejście: 151.530, 91.020 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+Wejście: 159.810, 61.400 -> Wyjście: [0.385, 0.615] | Oczekiwane: [1, 0]| BŁĄD
+Wejście: 149.400, 63.920 -> Wyjście: [0.385, 0.615] | Oczekiwane: [1, 0]| BŁĄD
+Wejście: 173.640, 59.520 -> Wyjście: [0.385, 0.615] | Oczekiwane: [1, 0]| BŁĄD
+Wejście: 174.340, 84.760 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+Wejście: 133.580, 63.280 -> Wyjście: [0.385, 0.615] | Oczekiwane: [1, 0]| BŁĄD
+Wejście: 184.620, 72.510 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+Wejście: 166.620, 75.180 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+Wejście: 153.500, 58.890 -> Wyjście: [0.385, 0.615] | Oczekiwane: [1, 0]| BŁĄD
+Wejście: 162.560, 87.360 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+Wejście: 165.700, 59.890 -> Wyjście: [0.385, 0.615] | Oczekiwane: [0, 1]| OK
+
+PODSUMOWANIE KLASYFIKACJI
+Poprawne: 18
+Błędne:   12

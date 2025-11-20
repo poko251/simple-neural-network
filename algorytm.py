@@ -1,15 +1,14 @@
 import numpy as np 
 import pandas as pd
-import sys
+from tqdm import tqdm
 
-sys.stdout = open("wynik.txt", "w", encoding="utf-8")
+betas = [1.5]
+etas = [0.1]
+epochs = [300]
+start_weight = 0.05
+normalizacja = 1
 
-beta = 1
-epoki = 1000
-eta = 0.1
 
-
-print(f"Ilość epok: {epoki}")
 def sigmoid(s, beta):
     sigmoid = 1/(1 + np.exp(-s*beta))
     return sigmoid
@@ -62,6 +61,15 @@ def pochodna_waga_ukryta(d, y, beta, s_output, v, w, x):
 
 
 def pochodna_bias_ukryta(d, y, beta, s_output, v, w):
+    """
+    d        - wektor wartości wzorcowych (d)
+    y        - wektor aktualnych wyjść (y)
+    beta     - parametr funkcji sigmoidalnej
+    s_output - wektor sum ważonych w neuronach wyjściowych (s_h_plus_m)
+    v        - wyjście neuronu ukrytego (v_i)
+    w        - wektor wag między tym neuronem ukrytym a neuronami wyjściowymi (w_h+m^(i))
+    x        - wejście do neuronu ukrytego (x_j)
+    """
 
     delta_output = -epsilon(d, y) * sigmoid_pochodna(s_output, beta) * w
 
@@ -74,31 +82,31 @@ def pochodna_bias_ukryta(d, y, beta, s_output, v, w):
 
 def wagi():
     # Wagi warstwy ukrytej
-    W1_1 = np.random.rand()  # do neuronu v1 z x1
-    W1_2 = np.random.rand()  # do neuronu v1 z x2
-    W2_1 = np.random.rand()  # do neuronu v2 z x1
-    W2_2 = np.random.rand()  # do neuronu v2 z x2
+    W1_1 = np.random.uniform(-start_weight, start_weight) # do neuronu v1 z x1
+    W1_2 = np.random.uniform(-start_weight, start_weight) # do neuronu v1 z x2
+    W2_1 = np.random.uniform(-start_weight, start_weight)  # do neuronu v2 z x1
+    W2_2 = np.random.uniform(-start_weight, start_weight)  # do neuronu v2 z x2
 
     # Biasy warstwy ukrytej
-    B1 = np.random.rand()
-    B2 = np.random.rand()
+    B1 = np.random.uniform(-start_weight, start_weight)
+    B2 = np.random.uniform(-start_weight, start_weight)
 
     # Wagi warstwy wyjściowej
-    W3_1 = np.random.rand()  # do neuronu y1 z v1
-    W3_2 = np.random.rand()  # do neuronu y1 z v2
-    W4_1 = np.random.rand()  # do neuronu y2 z v1
-    W4_2 = np.random.rand()  # do neuronu y2 z v2
+    W3_1 = np.random.uniform(-start_weight, start_weight) # do neuronu y1 z v1
+    W3_2 = np.random.uniform(-start_weight, start_weight)  # do neuronu y1 z v2
+    W4_1 = np.random.uniform(-start_weight, start_weight)  # do neuronu y2 z v1
+    W4_2 = np.random.uniform(-start_weight, start_weight) # do neuronu y2 z v2
 
     # Biasy warstwy wyjściowej
-    B3 = np.random.rand()
-    B4 = np.random.rand()
+    B3 = np.random.uniform(-start_weight, start_weight)
+    B4 = np.random.uniform(-start_weight, start_weight)
 
     return W1_1, W1_2, W2_1, W2_2, B1, B2, W3_1, W3_2, W4_1, W4_2, B3, B4
 
 
 
 def przod(W1_1, W1_2, W2_1, W2_2, B1, B2,
-          W3_1, W3_2, W4_1, W4_2, B3, B4, x):
+          W3_1, W3_2, W4_1, W4_2, B3, B4, x, beta):
 
     # x = [x1, x2, d1, d2]
     x1, x2, d1, d2 = x
@@ -124,7 +132,7 @@ def przod(W1_1, W1_2, W2_1, W2_2, B1, B2,
 
 def wstecz(W1_1, W1_2, W2_1, W2_2, B1, B2,
            W3_1, W3_2, W4_1, W4_2, B3, B4,
-           x, sv_1, sv_2, v1, v2, sy_1, sy_2, y1, y2, eta):
+           x, sv_1, sv_2, v1, v2, sy_1, sy_2, y1, y2, eta, beta):
 
     # Dane wejściowe
     x1, x2, d1, d2 = x
@@ -171,66 +179,109 @@ def wstecz(W1_1, W1_2, W2_1, W2_2, B1, B2,
 
 
 
+def start(betas, etas, epochs, normalizacja=0):
+    for beta in tqdm(betas, desc="Beta"):
+        for eta in tqdm(etas, desc="Etas", leave=False):
+            for epoch in tqdm(epochs, desc="Epoch", leave=False):
+                
 
-dane = pd.read_csv("zbior_treningowy.csv")
-X = dane[['Height', 'Weight']].values
-D = dane[['D1', 'D2']].values
+                filename = f"wynik_beta_{beta}_eta_{eta}_ep_{epoch}_normalizacja_{normalizacja}.txt"
 
-# Normalizacja 
-X[:,0] = X[:,0] / np.max(X[:,0])  # Height
-X[:,1] = X[:,1] / np.max(X[:,1])  # Weight
+                with open(filename, "w", encoding="utf-8") as f:
 
-W = wagi()
+                    print(f"Ilość epok: {epoch},", file=f)
+                    print(f"Beta: {beta}", file=f)
+                    print(f"Eta: {eta}", file=f)
+                    print(f"Normalizacja: {normalizacja}", file=f)
+                    print(f"Wagi losowane z zakresu ({-start_weight}, {start_weight})", file=f)
+                    dane = pd.read_csv("zbior_treningowy.csv")
+                    X = dane[['Height', 'Weight']].values
+                    D = dane[['D1', 'D2']].values
 
+                    #dane testwe
 
+                    dane_testowe = pd.read_csv("zbior_testowy.csv")
+                    X_test = dane_testowe[['Height', 'Weight']].values
+                    D_test = dane_testowe[['D1', 'D2']].values
 
+                    # Z-score
 
-for ep in range(epoki):
-    blad = 0.0
-    for i in range(len(X)):
-        x1, x2 = X[i]
-        d1, d2 = D[i]
-        x = [x1, x2, d1, d2]
+                    if normalizacja:
+                        H_mean, H_std = np.mean(X[:,0]), np.std(X[:,0])
+                        W_mean, W_std = np.mean(X[:,1]), np.std(X[:,1])
 
-        # Przód
-        sv_1, sv_2, v1, v2, sy_1, sy_2, y1, y2, e1, e2 = przod(*W, x)
+                        X[:,0] = (X[:,0] - H_mean) / H_std
+                        X[:,1] = (X[:,1] - W_mean) / W_std
 
-        # Wstecz i aktualizacja
-        W = wstecz(*W, x, sv_1, sv_2, v1, v2, sy_1, sy_2, y1, y2, eta)
-
-        # Blad
-        blad += e(np.array([d1, d2]), np.array([y1, y2]))
-
-    if ep % 100 == 0:
-        print(f"Epoka {ep} | Średni błąd = {blad / len(X)}")
-print(f"Epoka {ep} | Średni błąd = {blad / len(X)}")
-
-# Wagi po treningu
-print("\n KOŃCOWE WAGI I BIASY PO TRENINGU")
-print(f"W1_1={W[0]:.6f}, W1_2={W[1]:.6f}, W2_1={W[2]:.6f}, W2_2={W[3]:.6f}")
-print(f"B1={W[4]:.6f}, B2={W[5]:.6f}")
-print(f"W3_1={W[6]:.6f}, W3_2={W[7]:.6f}, W4_1={W[8]:.6f}, W4_2={W[9]:.6f}")
-print(f"B3={W[10]:.6f}, B4={W[11]:.6f}")
+                        X_test[:,0] = (X_test[:,0] - H_mean) / H_std
+                        X_test[:,1] = (X_test[:,1] - W_mean) / W_std
 
 
 
-#dane testwe
 
-dane_testowe = pd.read_csv("zbior_testowy.csv")
-X_test = dane_testowe[['Height', 'Weight']].values
-D_test = dane_testowe[['D1', 'D2']].values
-
-# Normalizacja 
-X_test[:,0] = X_test[:,0] / np.max(X_test[:,0])  # Height
-X_test[:,1] = X_test[:,1] / np.max(X_test[:,1])  # Weight
+                    W = wagi()
 
 
-print("\nTEST PO TRENINGU")
-for i in range(len(X_test)):
-    x1, x2 = X_test[i]
-    d1, d2 = D_test[i]
-    x = [x1, x2, d1, d2]
-    _, _, _, _, _, _, y1, y2, _, _ = przod(*W, x)
-    print(f"Wejście: {x1:.1f}, {x2:.1f} -> Wyjście: [{y1:.3f}, {y2:.3f}] | Oczekiwane: [{d1}, {d2}]")
+                    for ep in tqdm(range(epoch), desc="Training", leave=False):
+                        blad = 0.0
+                        for i in range(len(X)):
+                            x1, x2 = X[i]
+                            d1, d2 = D[i]
+                            x = [x1, x2, d1, d2]
+
+                            # Przód
+                            sv_1, sv_2, v1, v2, sy_1, sy_2, y1, y2, e1, e2 = przod(*W, x, beta)
+
+                            # Wstecz i aktualizacja
+                            W = wstecz(*W, x, sv_1, sv_2, v1, v2, sy_1, sy_2, y1, y2, eta, beta)
+
+                            # Blad
+                            blad += e(np.array([d1, d2]), np.array([y1, y2]))
+
+                        if ep % 100 == 0:
+                            print(f"Epoka {ep} | Średni błąd = {blad / len(X)}", file=f)
+                    print(f"Epoka {ep} | Średni błąd = {blad / len(X)}", file=f)
+
+                    # Wagi po treningu
+                    print("\n KOŃCOWE WAGI I BIASY PO TRENINGU", file=f)
+                    print(f"W1_1={W[0]:.6f}, W1_2={W[1]:.6f}, W2_1={W[2]:.6f}, W2_2={W[3]:.6f}",file=f)
+                    print(f"B1={W[4]:.6f}, B2={W[5]:.6f}", file=f)
+                    print(f"W3_1={W[6]:.6f}, W3_2={W[7]:.6f}, W4_1={W[8]:.6f}, W4_2={W[9]:.6f}",file=f)
+                    print(f"B3={W[10]:.6f}, B4={W[11]:.6f}",file=f)
 
 
+
+                    print("\nTEST PO TRENINGU",file=f)
+
+                    poprawne = 0
+                    bledne = 0
+
+                    for i in range(len(X_test)):
+                        x1, x2 = X_test[i]
+                        d1, d2 = D_test[i]
+                        x = [x1, x2, d1, d2]
+                        _, _, _, _, _, _, y1, y2, _, _ = przod(*W, x, beta)
+
+                        pred = np.argmax([y1, y2])
+                        true = np.argmax([d1, d2])
+
+                        if pred == true:
+                            poprawne += 1 
+                        else:
+                            bledne += 1
+
+                        print(f"Wejście: {x1:.3f}, {x2:.3f} -> Wyjście: [{y1:.3f}, {y2:.3f}] | Oczekiwane: [{d1}, {d2}]| {'OK' if pred==true else 'BŁĄD'}",file=f)
+
+                    print("\nPODSUMOWANIE KLASYFIKACJI",file=f)
+                    print(f"Poprawne: {poprawne}",file=f)
+                    print(f"Błędne:   {bledne}",file=f)
+
+
+
+start(betas, etas, epochs, normalizacja)
+
+
+
+# 1 Wpływ normalizacji na dokładność klasyfikacji, (chcemy dobrać parametry dla bez normalizacji zeby uzyskac efekt jak z normalzacją)
+#2 Wplyw liczby neuronów ukrytych : 0, 2
+#3 Macierz pomyłek
