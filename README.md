@@ -37,4 +37,4 @@ Comparison of model complexity:
 
 2. Run the script:
    ```bash
-   python main.py
+   python algorytm.py
